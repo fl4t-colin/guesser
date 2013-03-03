@@ -1,6 +1,22 @@
 (ns guesser.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(def smallest 0)
+
+(def biggest 1001)
+
+(defn guess []
+(quot (+ smallest biggest) 2))
+
+(defn bigger []
+  (def smallest (guess))
+  (guess))
+
+(defn smaller []
+  (def biggest (guess))
+  (guess))
+
+(defn new-game []
+  (println "Think of a number between 1 and 1000.")
+  (def smallest 0)
+  (def biggest 1001)
+  (guess))
